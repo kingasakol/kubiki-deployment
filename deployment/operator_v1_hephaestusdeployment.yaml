@@ -2,6 +2,7 @@ apiVersion: operator.kubiki.amocna/v1
 kind: HephaestusDeployment
 metadata:
   name: hephaestusdeployment-sample-19
+  namespace: kubiki
 spec:
   hephaestusGuiVersion: "dev"
   prometheusAddress: "prometheus.monitoring:9090"
