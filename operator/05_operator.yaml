@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: amocna-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: amocna-deployment
+  template:
+    metadata:
+      labels:
+        app: amocna-deployment
+    spec:
+      containers:
+        - name: amocna-deployment
+          image: lola69456/amocna-operator:v1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8097  

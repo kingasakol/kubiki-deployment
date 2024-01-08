@@ -1,0 +1,40 @@
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: test
+rules:
+  - apiGroups: ["operator.kubiki.amocna", "apps"]
+    resources: ["pods", "pods/exec", "namespaces", "hephaestusdeployments", "persistentvolumeclaims", "deployments", "configmaps", "services"]
+    verbs: ["get", "list", "delete", "patch", "create", "watch"]
+  - apiGroups: [""]
+    resources: ["pods", "pods/exec", "namespaces", "hephaestusdeployments", "persistentvolumeclaims", "configmaps", "deployments", "services"]
+    verbs: ["get", "list", "delete", "patch", "create", "watch"]
+---
+
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  namespace: default
+  name: pod-reader
+rules:
+  - apiGroups: ["operator.kubiki.amocna", "apps"] # "" indicates the core API group
+    resources: ["pods", "namespaces", "hephaestusdeployments", "persistentvolumeclaims", "deployments", "configmaps", "services"]
+    verbs: ["get", "list", "delete", "patch", "create", "watch"]
+  - apiGroups: [""] # "" indicates the core API group
+    resources: ["pods", "namespaces", "hephaestusdeployments", "persistentvolumeclaims", "configmaps", "services"]
+    verbs: ["get", "list", "delete", "patch", "create", "watch"]
+
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: read-secrets-global
+subjects:
+  - kind: ServiceAccount
+    name: default
+    namespace: default
+roleRef:
+  kind: ClusterRole
+  name: pod-reader
+  apiGroup: rbac.authorization.k8s.io
