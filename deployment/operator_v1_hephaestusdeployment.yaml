@@ -8,7 +8,7 @@ spec:
   prometheusAddress: "prometheus.monitoring:9090"
   executionControllerImage: "hephaestusmetrics/kubernetes-management:latest"
   metricsAdapterImage: "hephaestusmetrics/metrics-adapter:latest" 
-  hephaestusGuiExternalPort: 31129
+  hephaestusGuiExternalPort: 31122
   metricsAdapterInternalPort: 8085
   hephaestusGuiInternalPort: 8080
   executionControllerInternalPort: 8097
