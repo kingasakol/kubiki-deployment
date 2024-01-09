@@ -4,10 +4,10 @@ metadata:
   name: test
 rules:
   - apiGroups: ["operator.kubiki.amocna", "apps"]
-    resources: ["pods", "pods/exec", "namespaces", "hephaestusdeployments", "persistentvolumeclaims", "deployments", "configmaps", "services"]
+    resources: ["pods", "pods/exec", "namespaces", "hephaestusdeployments", "persistentvolumeclaims", "deployments", "configmaps", "services", "persistentvolumes"]
     verbs: ["get", "list", "delete", "patch", "create", "watch"]
   - apiGroups: [""]
-    resources: ["pods", "pods/exec", "namespaces", "hephaestusdeployments", "persistentvolumeclaims", "configmaps", "deployments", "services"]
+    resources: ["pods", "pods/exec", "namespaces", "hephaestusdeployments", "persistentvolumeclaims", "configmaps", "deployments", "services", "persistentvolumes"]
     verbs: ["get", "list", "delete", "patch", "create", "watch"]
 ---
 
@@ -18,10 +18,10 @@ metadata:
   name: pod-reader
 rules:
   - apiGroups: ["operator.kubiki.amocna", "apps"] # "" indicates the core API group
-    resources: ["pods", "namespaces", "hephaestusdeployments", "persistentvolumeclaims", "deployments", "configmaps", "services"]
+    resources: ["pods", "namespaces", "hephaestusdeployments", "persistentvolumeclaims", "deployments", "configmaps", "services", "persistentvolumes"]
     verbs: ["get", "list", "delete", "patch", "create", "watch"]
   - apiGroups: [""] # "" indicates the core API group
-    resources: ["pods", "namespaces", "hephaestusdeployments", "persistentvolumeclaims", "configmaps", "services"]
+    resources: ["pods", "namespaces", "hephaestusdeployments", "persistentvolumeclaims", "configmaps", "services", "persistentvolumes"]
     verbs: ["get", "list", "delete", "patch", "create", "watch"]
 
 ---
