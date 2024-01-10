@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: amocna-deployment
-          image: lola69456/amocna-operator:v4
+          image: lola69456/amocna-operator:v5
           imagePullPolicy: Always
           ports:
             - containerPort: 8097  
